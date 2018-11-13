@@ -21,7 +21,7 @@ BaselineOfFame >> baseline: spec [
 				
 			"Packages"
 			spec
-				package: 'Fame-Core' with: [ spec requires: 'HashTable' ];
+				package: 'Fame-Core' with: [ spec requires: 'Hashtable' ];
 				package: 'Fame-Util';
 				package: 'Fame-ImportExport' with: [ spec requires: #('Fame-Core' 'Phexample') ];
 				package: 'Fame-SmalltalkBinding' with: [ spec requires: #('Fame-Core' 'Phexample') ];
