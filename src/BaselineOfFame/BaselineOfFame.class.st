@@ -17,14 +17,14 @@ BaselineOfFame >> baseline: spec [
 			self
 				hashtable: spec;
 				mocketry: spec;
-				phexample: spec.
+				stateSpecs: spec.
 				
 			"Packages"
 			spec
-				package: 'Fame-Core' with: [ spec requires: 'Hashtable' ];
+				package: 'Fame-Core' with: [ spec requires: #('Hashtable' 'StateSpecs') ];
 				package: 'Fame-Util';
-				package: 'Fame-ImportExport' with: [ spec requires: #('Fame-Core' 'Phexample') ];
-				package: 'Fame-SmalltalkBinding' with: [ spec requires: #('Fame-Core' 'Phexample') ];
+				package: 'Fame-ImportExport' with: [ spec requires: #('Fame-Core') ];
+				package: 'Fame-SmalltalkBinding' with: [ spec requires: #('Fame-Core') ];
 				package: 'Fame-Example';
 				package: 'Fame-Tests-Core' with: [ spec requires: #('Fame-Core' 'Fame-Example' 'Mocketry') ].
 
@@ -45,6 +45,6 @@ BaselineOfFame >> mocketry: spec [
 ]
 
 { #category : #dependencies }
-BaselineOfFame >> phexample: spec [
-	spec baseline: 'Phexample' with: [ spec repository: 'github://jecisc/Phexample:v1.x.x/src' ]
+BaselineOfFame >> stateSpecs: spec [
+	spec baseline: 'StateSpecs' with: [ spec repository: 'github://dionisiydk/StateSpecs:v2.4.x' ]
 ]
