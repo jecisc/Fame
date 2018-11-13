@@ -25,7 +25,6 @@ BaselineOfFame >> baseline: spec [
 				package: 'Fame-Util';
 				package: 'Fame-ImportExport' with: [ spec requires: #('Fame-Core' 'Phexample') ];
 				package: 'Fame-SmalltalkBinding' with: [ spec requires: #('Fame-Core' 'Phexample') ];
-				package: 'Fame-CSharpBinding';
 				package: 'Fame-Example';
 				package: 'Fame-Tests-Core' with: [ spec requires: #('Fame-Core' 'Fame-Example' 'Mocketry') ].
 
