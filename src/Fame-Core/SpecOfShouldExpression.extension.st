@@ -12,10 +12,10 @@ SpecOfShouldExpression >> >= expected [
 
 { #category : #'*Fame-Core' }
 SpecOfShouldExpression >> beFalse [
-	self be: false
+	^ self be: false
 ]
 
 { #category : #'*Fame-Core' }
 SpecOfShouldExpression >> beTrue [
-	self be: true
+	^ self be: true
 ]
