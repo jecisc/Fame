@@ -22,7 +22,7 @@ BaselineOfFame >> baseline: spec [
 			"Packages"
 			spec
 				package: 'Fame-Core' with: [ spec requires: #('Hashtable' 'StateSpecs') ];
-				package: 'Fame-Util';
+				package: 'Fame-Rules';
 				package: 'Fame-ImportExport' with: [ spec requires: #('Fame-Core') ];
 				package: 'Fame-SmalltalkBinding' with: [ spec requires: #('Fame-Core') ];
 				package: 'Fame-Example';
@@ -30,7 +30,7 @@ BaselineOfFame >> baseline: spec [
 
 			"Groups"
 			spec
-				group: 'Core' with: #('Fame-Core' 'Fame-ImportExport' 'Fame-Util' 'Fame-SmalltalkBinding');
+				group: 'Core' with: #('Fame-Core' 'Fame-ImportExport' 'Fame-Rules' 'Fame-SmalltalkBinding');
 				group: 'Tests' with: #('Fame-Tests-Core') ]
 ]
 
