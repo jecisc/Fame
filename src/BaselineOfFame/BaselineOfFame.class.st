@@ -4,6 +4,9 @@ Baseline for the Fame project.
 Class {
 	#name : #BaselineOfFame,
 	#superclass : #BaselineOf,
+	#instVars : [
+		'repository'
+	],
 	#category : #BaselineOfFame
 }
 
@@ -42,6 +45,11 @@ BaselineOfFame >> hashtable: spec [
 { #category : #dependencies }
 BaselineOfFame >> mocketry: spec [
 	spec baseline: 'Mocketry' with: [ spec repository: 'github://dionisiydk/Mocketry:v4.0.x' ]
+]
+
+{ #category : #accessing }
+BaselineOfFame >> projectClass [
+	^ MetacelloCypressBaselineProject
 ]
 
 { #category : #dependencies }
