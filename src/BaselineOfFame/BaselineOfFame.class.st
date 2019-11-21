@@ -19,12 +19,11 @@ BaselineOfFame >> baseline: spec [
 			"Dependencies"
 			self
 				hashtable: spec;
-				mocketry: spec;
-				stateSpecs: spec.
+				mocketry: spec.
 				
 			"Packages"
 			spec
-				package: 'Fame-Core' with: [ spec requires: #('Hashtable' 'StateSpecs') ];
+				package: 'Fame-Core' with: [ spec requires: #('Hashtable' 'Mocketry') ];
 				package: 'Fame-Rules';
 				package: 'Fame-ImportExport' with: [ spec requires: #('Fame-Core') ];
 				package: 'Fame-SmalltalkBinding' with: [ spec requires: #('Fame-Core') ];
