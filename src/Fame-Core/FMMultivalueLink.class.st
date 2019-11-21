@@ -38,15 +38,14 @@ Class {
 		'owner',
 		'opposite'
 	],
-	#category : #'Fame-Core'
+	#category : #'Fame-Core-Utilities'
 }
 
 { #category : #'instance creation' }
 FMMultivalueLink class >> on: element opposite: oppositeSelector [
-
-	^self new
-		with: element
-		opposite: oppositeSelector
+	^ self new
+		with: element opposite: oppositeSelector;
+		yourself
 ]
 
 { #category : #'instance creation' }
@@ -89,6 +88,11 @@ FMMultivalueLink >> at: index [
 	^values at: index
 ]
 
+{ #category : #iterators }
+FMMultivalueLink >> basicIterator [
+	^ values basicIterator
+]
+
 { #category : #accessing }
 FMMultivalueLink >> byName: name [
 	^ self byName: name ifAbsent: [ self errorNotFound: name ]
@@ -121,6 +125,11 @@ FMMultivalueLink >> hash [
 	hash := self species hash.
 	1 to: self size do: [ :i | hash := (hash + (self at: i) hash) hashMultiply ].
 	^ hash
+]
+
+{ #category : #iterators }
+FMMultivalueLink >> iterator [
+	^ values iterator
 ]
 
 { #category : #'accessing-computed' }

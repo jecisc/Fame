@@ -20,21 +20,32 @@ BaselineOfFame >> baseline: spec [
 			self
 				hashtable: spec;
 				mocketry: spec;
-				stateSpecs: spec.
-				
+				iterators: spec;
+				treeQuery: spec.
+
 			"Packages"
 			spec
-				package: 'Fame-Core' with: [ spec requires: #('Hashtable' 'StateSpecs') ];
+				package: 'Fame-Core' with: [ spec requires: #('Hashtable' 'TreeQuery' 'Iterators') ];
 				package: 'Fame-Rules';
 				package: 'Fame-ImportExport' with: [ spec requires: #('Fame-Core') ];
-				package: 'Fame-SmalltalkBinding' with: [ spec requires: #('Fame-Core') ];
 				package: 'Fame-Example';
-				package: 'Fame-Tests-Core' with: [ spec requires: #('Fame-Core' 'Fame-Example' 'Mocketry') ].
+				package: 'Fame-Tests' with: [ spec requires: #('Fame-Core' 'Fame-ImportExport' 'Fame-Example' 'Mocketry') ];
+				package: 'Fame-GT' with: [ spec requires: #('Fame-ImportExport') ];
+				package: 'Fame-Deprecated' with: [ spec requires: #('Fame-ImportExport') ].
 
 			"Groups"
 			spec
-				group: 'Core' with: #('Fame-Core' 'Fame-ImportExport' 'Fame-Rules' 'Fame-SmalltalkBinding');
-				group: 'Tests' with: #('Fame-Tests-Core') ]
+				group: 'Core' with: #('Fame-Core' 'Fame-ImportExport' 'Fame-Rules');
+				group: 'GT' with: #('Core' 'Fame-GT');
+				group: 'Deprecated' with: #('Core' 'Fame-Deprecated');
+				group: 'Tests' with: #('Fame-Tests') ].
+			
+	spec
+		for: #'pharo7.x'
+		do: [ 
+			spec
+				package: 'Fame-Pharo8Compatibility';
+				package: 'Fame-Core' with: [ spec includes: #('Fame-Pharo8Compatibility') ] ]
 ]
 
 { #category : #dependencies }
@@ -43,8 +54,20 @@ BaselineOfFame >> hashtable: spec [
 ]
 
 { #category : #dependencies }
+BaselineOfFame >> iterators: spec [
+	spec baseline: 'Iterators' with: [ 
+		spec
+			repository: 'github://juliendelplanque/Iterators:v1.x.x/src';
+			loads: #('core' 'collections' 'shell-dsl' 'inspector-extensions') ]
+]
+
+{ #category : #dependencies }
 BaselineOfFame >> mocketry: spec [
-	spec baseline: 'Mocketry' with: [ spec repository: 'github://dionisiydk/Mocketry:v4.0.x' ]
+	spec
+		baseline: 'Mocketry'
+		with: [ spec
+				loads: #('Core');
+				repository: 'github://dionisiydk/Mocketry:v6.0.x' ]
 ]
 
 { #category : #accessing }
@@ -53,6 +76,9 @@ BaselineOfFame >> projectClass [
 ]
 
 { #category : #dependencies }
-BaselineOfFame >> stateSpecs: spec [
-	spec baseline: 'StateSpecs' with: [ spec repository: 'github://dionisiydk/StateSpecs:v2.4.x' ]
+BaselineOfFame >> treeQuery: spec [
+	spec baseline: 'TreeQuery' with: [ 
+		spec
+			repository: 'github://juliendelplanque/TreeQuery:v1.x.x/src';
+			loads: #('core') ]
 ]
