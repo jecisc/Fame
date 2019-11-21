@@ -44,15 +44,10 @@ BaselineOfFame >> hashtable: spec [
 
 { #category : #dependencies }
 BaselineOfFame >> mocketry: spec [
-	spec baseline: 'Mocketry' with: [ spec repository: 'github://dionisiydk/Mocketry:v4.0.x' ]
+	spec baseline: 'Mocketry' with: [ spec repository: 'github://dionisiydk/Mocketry:v6.0.x' ]
 ]
 
 { #category : #accessing }
 BaselineOfFame >> projectClass [
 	^ MetacelloCypressBaselineProject
-]
-
-{ #category : #dependencies }
-BaselineOfFame >> stateSpecs: spec [
-	spec baseline: 'StateSpecs' with: [ spec repository: 'github://dionisiydk/StateSpecs:v2.4.x' ]
 ]
